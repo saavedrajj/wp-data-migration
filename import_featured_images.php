@@ -34,7 +34,7 @@ if (!function_exists("preprint")) {
 }
 
 // Set database server access variables:
-if ($_SERVER['REMOTE_ADDR'] == '10.190.254.11') {
+if ($_SERVER['REMOTE_ADDR'] == '10.10.01.10') {
     $host = "HOST";
     $user = "USER";
     $pwd = "PASSWORD";
@@ -116,15 +116,15 @@ if (mysql_num_rows($result) > 0) {
                 echo "media__media.description: " . $image_description . "<br/>";
 
                 if ($_SERVER['REMOTE_ADDR'] == '10.190.254.11') {
-                    $story_url = "http://cdn.her.ie/story/0001/";
-                    $default_url = "http://cdn.her.ie/default/0001/";
-                    $video_url = "http://cdn.her.ie/video/0001/";
-                    $author_url = "http://cdn.her.ie/author/0001/";
+                    $story_url = "http://cdn.yourdomain.com/story/0001/";
+                    $default_url = "http://cdn.yourdomain.com/default/0001/";
+                    $video_url = "http://cdn.yourdomain.com/video/0001/";
+                    $author_url = "http://cdn.yourdomain.com/author/0001/";
                 } else {
-                    $story_url = "http://localhost:8888/her.ie/wp-content/uploads/cdn/story/0001/";
-                    $default_url = "http://localhost:8888/her.ie/wp-content/uploads/cdn/default/0001/";
-                    $video_url = "http://localhost:8888/her.ie/wp-content/uploads/cdn/video/0001/";
-                    $author_url = "http://localhost:8888/her.ie/wp-content/uploads/cdn/author/0001/";
+                    $story_url = "http://localhost:8888/yourdomain.com/wp-content/uploads/cdn/story/0001/";
+                    $default_url = "http://localhost:8888/yourdomain.com/wp-content/uploads/cdn/default/0001/";
+                    $video_url = "http://localhost:8888/yourdomain.com/wp-content/uploads/cdn/video/0001/";
+                    $author_url = "http://localhost:8888/yourdomain.com/wp-content/uploads/cdn/author/0001/";
                 }
                 // Loop to find the image related to post
                 #$i = 1;
@@ -219,7 +219,7 @@ if (mysql_num_rows($result) > 0) {
                 echo "<img src='" . $image_attributes[0] . "' width=100><br/><br/>";
 
                 //Erase original file on disk
-                $image_to_delete = str_replace("http://localhost:8888/her.ie/", "", $image_url);
+                $image_to_delete = str_replace("http://localhost:8888/yourdomain.com/", "", $image_url);
                 #echo $image_to_delete;
                 echo "<hr/><br/>";
                 #unlink($image_to_delete);

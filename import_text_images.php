@@ -34,7 +34,7 @@ if (!function_exists("preprint")) {
 }
 
 // Set database server access variables:
-if ($_SERVER['REMOTE_ADDR'] == '10.190.254.11') {
+if ($_SERVER['REMOTE_ADDR'] == '10.10.10.10') {
     $host = "HOST";
     $user = "USER";
     $pwd = "PASSWORD";
@@ -116,7 +116,7 @@ if (mysql_num_rows($result) > 0) {
                 //echo $path_parts['extension'], "<br/>";
                 //echo "filename: " . $path_parts['filename'], "<br/>"; // since PHP 5.2.0
 
-                $localhost = "http://127.0.0.1/her.ie/";
+                $localhost = "http://127.0.0.1/yourdomain.com/";
 
 
                 $source_file = str_replace($localhost, "", $url);

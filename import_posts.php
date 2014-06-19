@@ -1,6 +1,6 @@
 <?php
 /*
- * This script imports to Wordpress all the stories from the former her.ie
+ * This script imports to Wordpress all the stories from the former yourdomain.com
  *
  */
 require_once('wp-config.php');
@@ -67,7 +67,7 @@ if (!function_exists("preprint")) {
 
 
 // set database server access variables:
-if ($_SERVER['REMOTE_ADDR'] == '10.190.254.11') {
+if ($_SERVER['REMOTE_ADDR'] == '10.10.10.10') {
     $host = "HOST";
     $user = "USER";
     $pwd = "USER";
@@ -345,7 +345,7 @@ if (mysql_num_rows($result) > 0) {
                 echo "stories.id: " . $row['id'] . "<br/>";
                 echo "stories.title: " . $row['title'] . "<br/>";
                 echo "post_type: " . $row['type'] . "<br/><br/>";
-                $text_broken = str_replace("../../../../../uploads/media/", "http://cdn.her.ie/", $row['text']);
+                $text_broken = str_replace("../../../../../uploads/media/", "http://cdn.yourdomain.com/", $row['text']);
                 $my_post_gallery = array(
                     'post_title' => $row['title'],
                     'post_content' => $text_broken,
@@ -424,7 +424,7 @@ if (mysql_num_rows($result) > 0) {
                                 $text_temp =
                                     "<div align='center'><iframe width='" . $row_query_media['width'] . "' height='" . $row_query_media['height'] . "' src='//www.youtube.com/embed/" . $row_query_media['provider_reference'] . "' frameborder='0' allowfullscreen></iframe></div><br/>";
                                 #echo "<br/>" . $text_temp . "<br/>";
-                                $text_broken = str_replace("../../../../../uploads/media/", "http://cdn.her.ie/", $row['text']);
+                                $text_broken = str_replace("../../../../../uploads/media/", "http://cdn.yourdomain.com/", $row['text']);
                                 $my_post_youtube = array(
                                     'post_title' => $row['title'],
                                     'post_content' => $text_temp . $text_broken,
@@ -459,7 +459,7 @@ if (mysql_num_rows($result) > 0) {
                                 $vimeo_height = 357;
                                 $text_temp =
                                     "<div align='center'><iframe src='//player.vimeo.com/video/" . $row_query_media['provider_reference'] . "?title=0&amp;byline=0&amp;portrait=0' width='" . $vimeo_width . "' height='" . $vimeo_height . "' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div>";
-                                $text_broken = str_replace("../../../../../uploads/media/", "http://cdn.her.ie/", $row['text']);
+                                $text_broken = str_replace("../../../../../uploads/media/", "http://cdn.yourdomain.com/", $row['text']);
                                 $my_post_vimeo = array(
                                     'post_title' => $row['title'],
                                     'post_content' => $text_temp . $text_broken,
@@ -490,7 +490,7 @@ if (mysql_num_rows($result) > 0) {
                                 remove_filter('content_filtered_save_pre', 'wp_filter_post_kses');
                                 echo "jwplayer" . "<br/>";
                                 $path_server = get_bloginfo('url');
-                                $path_server = "http://her.ie";
+                                $path_server = "http://yourdomain.com";
                                 #$path_server = "http://localhost:8888/draft.ie";
                                 $path_videos = $path_server . "/wp-content/uploads/videos/";
                                 $path_videos = $path_server . "/wp-content/uploads/videos/";
@@ -504,14 +504,14 @@ if (mysql_num_rows($result) > 0) {
 
                                 $text_temp = "
                                 <div align='center'><object classid='clsid:D27CDB6E-AE6D-11cf-96B8-444553540000' id='jw-0' name='jw-0' height='" . $row_query_media['height'] . "' width='" . $row_query_media['width'] . "'>
-                                    <param name='movie' value='http://her.ie/assets/jwplayer/player.swf'>
+                                    <param name='movie' value='http://yourdomain.com/assets/jwplayer/player.swf'>
                                     <param name='allowfullscreen' value='true'>
                                     <param name='allowscriptaccess' value='always'>
                                     <param name='wmode' value='transparent'>
                                     <param name='flashvars' value='file=" . $path_videos . $row_query_media['provider_reference'] . "&image=" . $path_videos . $video_metadata . "'>
-                                    <embed type='application/x-shockwave-flash' id='jw-0-a' name='jw-0-a' src='http://her.ie/assets/jwplayer/player.swf' bgcolor='undefined' allowscriptaccess='always' allowfullscreen='true' wmode='transparent' flashvars='file=" . $path_videos . $row_query_media['provider_reference'] . "&image=" . $path_videos . $video_metadata . "' height='" . $row_query_media['height'] . "' width='" . $row_query_media['width'] . "'>
+                                    <embed type='application/x-shockwave-flash' id='jw-0-a' name='jw-0-a' src='http://yourdomain.com/assets/jwplayer/player.swf' bgcolor='undefined' allowscriptaccess='always' allowfullscreen='true' wmode='transparent' flashvars='file=" . $path_videos . $row_query_media['provider_reference'] . "&image=" . $path_videos . $video_metadata . "' height='" . $row_query_media['height'] . "' width='" . $row_query_media['width'] . "'>
                                 </object></div>";
-                                $text_broken = str_replace("../../../../../uploads/media/", "http://cdn.her.ie/", $row['text']);
+                                $text_broken = str_replace("../../../../../uploads/media/", "http://cdn.yourdomain.com/", $row['text']);
                                 $my_post_jwplayer = array(
                                     'post_title' => $row['title'],
                                     'post_content' => $text_temp . $text_broken,
@@ -542,7 +542,7 @@ if (mysql_num_rows($result) > 0) {
                                 remove_filter('content_filtered_save_pre', 'wp_filter_post_kses');
                                 $text_temp =
                                     "<div align='center'><iframe frameborder='0' width='" . $row_query_media['width'] . "' height='" . $row_query_media['height'] . "' src='http://www.dailymotion.com/embed/video/" . $row_query_media['provider_reference'] . "'></iframe></div>";
-                                $text_broken = str_replace("../../../../../uploads/media/", "http://cdn.her.ie/", $row['text']);
+                                $text_broken = str_replace("../../../../../uploads/media/", "http://cdn.yourdomain.com/", $row['text']);
                                 $my_post_dailymotion = array(
                                     'post_title' => $row['title'],
                                     'post_content' => $text_temp . $text_broken,
@@ -574,15 +574,15 @@ if (mysql_num_rows($result) > 0) {
                                 remove_filter('content_filtered_save_pre', 'wp_filter_post_kses');
                                 echo "image" . "<br/>";
                                 if ($_SERVER['REMOTE_ADDR'] == '10.190.254.11') {
-                                    $story_url = "http://cdn.her.ie/story/0001/";
-                                    $default_url = "http://cdn.her.ie/default/0001/";
-                                    $video_url = "http://cdn.her.ie/video/0001/";
-                                    $author_url = "http://cdn.her.ie/author/0001/";
+                                    $story_url = "http://cdn.yourdomain.com/story/0001/";
+                                    $default_url = "http://cdn.yourdomain.com/default/0001/";
+                                    $video_url = "http://cdn.yourdomain.com/video/0001/";
+                                    $author_url = "http://cdn.yourdomain.com/author/0001/";
                                 } else {
-                                    $story_url = "http://localhost:8888/her.ie/wp-content/uploads/cdn/story/0001/";
-                                    $default_url = "http://localhost:8888/her.ie/wp-content/uploads/cdn/default/0001/";
-                                    $video_url = "http://localhost:8888/her.ie/wp-content/uploads/cdn/video/0001/";
-                                    $author_url = "http://localhost:8888/her.ie/wp-content/uploads/cdn/author/0001/";
+                                    $story_url = "http://localhost:8888/yourdomain.com/wp-content/uploads/cdn/story/0001/";
+                                    $default_url = "http://localhost:8888/yourdomain.com/wp-content/uploads/cdn/default/0001/";
+                                    $video_url = "http://localhost:8888/yourdomain.com/wp-content/uploads/cdn/video/0001/";
+                                    $author_url = "http://localhost:8888/yourdomain.com/wp-content/uploads/cdn/author/0001/";
                                 }
 
                                 // Loop to find the image related to post
@@ -653,7 +653,7 @@ if (mysql_num_rows($result) > 0) {
                                     $text_temp = "<div align='center'><img src=" . $image_url . " width='" . $image_url_width . "'></div>";
                                 }
 
-                                $text_broken = str_replace("../../../../../uploads/media/", "http://cdn.her.ie/", $row['text']);
+                                $text_broken = str_replace("../../../../../uploads/media/", "http://cdn.yourdomain.com/", $row['text']);
                                 $my_post_image = array(
                                     'post_title' => $row['title'],
                                     'post_content' => $text_temp . $text_broken,
@@ -693,7 +693,7 @@ if (mysql_num_rows($result) > 0) {
                 echo "stories.id: " . $row['id'] . "<br/>";
                 echo "stories.title: " . $row['title'] . "<br/>";
                 echo "post_type: " . $row['type'] . "<br/><br/>";
-                $text_broken = str_replace("../../../../../uploads/media/", "http://cdn.her.ie/", $row['text']);
+                $text_broken = str_replace("../../../../../uploads/media/", "http://cdn.yourdomain.com/", $row['text']);
                 $my_post_story = array(
                     'post_title' => $row['title'],
                     'post_content' => $text_broken,
