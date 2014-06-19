@@ -34,7 +34,7 @@ if (!function_exists("preprint")) {
 }
 
 // Set database server access variables:
-if ($_SERVER['REMOTE_ADDR'] == '10.10.01.10') {
+if ($_SERVER['REMOTE_ADDR'] == '10.10.10.10') {
     $host = "HOST";
     $user = "USER";
     $pwd = "PASSWORD";
