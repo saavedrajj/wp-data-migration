@@ -68,15 +68,15 @@ if (!function_exists("preprint")) {
 
 // set database server access variables:
 if ($_SERVER['REMOTE_ADDR'] == '10.190.254.11') {
-    $host = "36cecfd7206f8f4cc7f556a30f11588edd1e4025.rackspaceclouddb.com";
-    $user = "herdotIEuser";
-    $pwd = "aafpjKEmL1tZUojg";
-    $db = "herdotIEdata";
+    $host = "HOST";
+    $user = "USER";
+    $pwd = "USER";
+    $db = "DATABASE";
 } else {
-    $host = "localhost";
-    $user = "root";
-    $pwd = "root";
-    $db = "her";
+    $host = "HOST";
+    $user = "USER";
+    $pwd = "PASSWORD";
+    $db = "DATABASE";
 }
 
 // open connection
@@ -129,48 +129,7 @@ $queryTEMP =
     order by t2.id ASC
     ";
 
-# AND (t2.id BETWEEN '0' AND '1000')
-# AND (t2.id BETWEEN '1001' AND '3000')
-# LIMIT 0 , 10
-# id = 17319
-# id=7029 < 2012
 
-#     gallery: '3027','3043','3058','3068'
-#     story:   '3000','3001','3002','3003'
-#     youtube: '16962', '16964', '16969', '16971'
-#     vimeo:   '15460', '15729', '15791', '15805'
-#     jwplayer: '9772','9962','10575','11304'
-#     dailymotion: '4032','9071'
-#     imagen: '10837','10869','10919'
-/*
-'3027','3043','3058','3068',
-'3000','3001','3002','3003',
-'16962', '16964', '16969', '16971',
-'15460', '15729', '15791', '15805',
-'9772','9962','10575','11304',
-'4032','9071',
- '10837','10869','10919',
-*/
-/*
- *
-
-select ID, type
-from stories
-where type="gallery"
-
-
-SELECT * FROM 	media__media
-where provider_name ="joe_video.provider.jwplayer" order by id DESC
-
-
-SELECT * from story__media
-where story_media_id in (6,11,12,13)
-
-images
-SELECT * from media__media
-where id in (6,11,12,13)
-
-*/
 // execute query
 $result = mysql_query($query) or die("Error in query: $query. " . mysql_error());
 

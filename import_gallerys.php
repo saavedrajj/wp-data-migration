@@ -42,15 +42,15 @@ if (!function_exists("preprint")) {
 
 // Set database server access variables:
 if ($_SERVER['REMOTE_ADDR'] == '10.190.254.11') {
-    $host = "36cecfd7206f8f4cc7f556a30f11588edd1e4025.rackspaceclouddb.com";
-    $user = "herdotIEuser";
-    $pwd = "aafpjKEmL1tZUojg";
-    $db = "herdotIEdata";
+    $host = "HOST";
+    $user = "USER";
+    $pwd = "PASSWORD";
+    $db = "DATABASE";
 } else {
-    $host = "localhost";
-    $user = "root";
-    $pwd = "root";
-    $db = "her";
+    $host = "HOST";
+    $user = "USER";
+    $pwd = "ROOT";
+    $db = "DATABASE";
 }
 
 // open connection
